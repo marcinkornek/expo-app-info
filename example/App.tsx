@@ -1,20 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
-
-import * as ExpoAppInfo from 'expo-app-info';
+import * as AppInfo from 'expo-app-info';
+import { Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>{ExpoAppInfo.hello()}</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Build number: {AppInfo.getBuildNumber()}</Text>
+      <Text>Build bundle id: {AppInfo.getBundleId()}</Text>
+      <Text>App version: {AppInfo.getAppVersion()}</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
