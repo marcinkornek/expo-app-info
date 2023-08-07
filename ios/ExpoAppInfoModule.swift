@@ -5,15 +5,15 @@ public class ExpoAppInfoModule: Module {
     Name("ExpoAppInfo")
 
     Function("getBuildNumber") { () -> String in
-      "system"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
     }
 
     Function("getBundleId") { () -> String in
-      "system"
+        Bundle.main.bundleIdentifier!
     }
 
     Function("getAppVersion") { () -> String in
-      "system"
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String  
     }
   }
 }
